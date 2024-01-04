@@ -24,7 +24,7 @@ pipeline {
         stage('Lint Dockerfile'){
             steps{
                 script{
-                def hadolintExitCode = sh(script: "~/bin/hadolint /home/vagrant/lolflask/dockerfile", returnStatus: true) 
+                def hadolintExitCode = sh(script: "~/bin/hadolint /vagrant/lolflask/dockerfile", returnStatus: true) 
                 if (hadolintExitCode !=0) {
                     currentBuild.result = 'FAILURE'
                     error("Hadolint found issues in the dockerfile")
